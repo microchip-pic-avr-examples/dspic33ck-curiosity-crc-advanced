@@ -1,8 +1,0 @@
-2.5,ADVISORY,benchmarking.h:23:0,A project should not contain unused macro declarations
-2.5,ADVISORY,crc_settings.h:23:0,A project should not contain unused macro declarations
-2.5,ADVISORY,demo_settings.h:23:0,A project should not contain unused macro declarations
-2.5,ADVISORY,hardware_crc.h:23:0,A project should not contain unused macro declarations
-2.5,ADVISORY,print.h:23:0,A project should not contain unused macro declarations
-2.4,ADVISORY,print.h:43:1,A project should not contain unused tag declarations
-2.5,ADVISORY,software_crc.h:22:0,A project should not contain unused macro declarations
-2.5,ADVISORY,swap.h:23:0,A project should not contain unused macro declarations

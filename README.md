@@ -169,7 +169,7 @@ The menu will also be reprinted, allowing users to change settings to see how th
 
 **NOTE: If any settings are toggled after calculating, ensure to enter 'c' to recalculate with the new settings.**
 
-Enter "t" to progress to the virtual transmission and software CRC calculation. The data vector will be reprinted, showing what is being sent by the virtual transmitter.This is the data appended by the hardware CRC value. The data vector will be reprinted again. It will have the error caused by the virtual transmission, if enabled. This is what the virtual receiver receives. A software CRC calculation is then performed, and its results are printed.
+Enter "t" to progress to the virtual transmission and software CRC calculation. The data vector will be reprinted, showing what is being sent by the virtual transmitter. This is the data appended by the hardware CRC value. The data vector will be reprinted again. It will have the error caused by the virtual transmission, if enabled. This is what the virtual receiver receives. A software CRC calculation is then performed, and its results are printed.
 
 ![Transmission and Software CRC Result](images/advanced_software_crc_result.JPG)
 

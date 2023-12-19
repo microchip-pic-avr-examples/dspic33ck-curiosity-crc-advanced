@@ -1,0 +1,76 @@
+17.7,REQUIRED,benchmarking.c:33:25,The value returned by a function having non-void return type shall be used
+17.7,REQUIRED,benchmarking.c:39:25,The value returned by a function having non-void return type shall be used
+21.1,REQUIRED,benchmarking.h:23:0,define and undef directives shall not be used on a reserved identifier or reserved macro name
+21.1,REQUIRED,crc_settings.h:23:0,define and undef directives shall not be used on a reserved identifier or reserved macro name
+2.5,ADVISORY,data.h:23:0,A project should not contain unused macro declarations
+21.1,REQUIRED,demo_settings.h:23:0,define and undef directives shall not be used on a reserved identifier or reserved macro name
+8.9,ADVISORY,hardware_crc.c:26:17,An object should be defined at block scope if its identifier only appears in a single function
+7.2,REQUIRED,hardware_crc.c:28:37,"A u"" or ""U"" suffix shall be applied to all integer constants that are represented in an unsigned type"""
+8.9,ADVISORY,hardware_crc.c:29:17,An object should be defined at block scope if its identifier only appears in a single function
+8.9,ADVISORY,hardware_crc.c:30:17,An object should be defined at block scope if its identifier only appears in a single function
+8.9,ADVISORY,hardware_crc.c:31:17,An object should be defined at block scope if its identifier only appears in a single function
+8.7,ADVISORY,hardware_crc.c:33:6,Functions and objects should not be defined with external linkage if the are referenced in only one translation unit
+10.4,REQUIRED,hardware_crc.c:37:46,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+8.7,ADVISORY,hardware_crc.c:40:6,Functions and objects should not be defined with external linkage if the are referenced in only one translation unit
+21.1,REQUIRED,hardware_crc.h:23:0,define and undef directives shall not be used on a reserved identifier or reserved macro name
+15.6,REQUIRED,main.c:197:5,The body of an iteration-statement or a selection-statement shall be a compound-statement
+8.9,ADVISORY,main.c:55:16,An object should be defined at block scope if its identifier only appears in a single function
+8.9,ADVISORY,main.c:56:16,An object should be defined at block scope if its identifier only appears in a single function
+8.7,ADVISORY,main.c:59:9,Functions and objects should not be defined with external linkage if the are referenced in only one translation unit
+5.8,REQUIRED,main.c:60:9,Identifiers that define objects or functions with external linkage shall be unique
+5.8,REQUIRED,main.c:61:9,Identifiers that define objects or functions with external linkage shall be unique
+5.8,REQUIRED,main.c:63:9,Identifiers that define objects or functions with external linkage shall be unique
+5.8,REQUIRED,main.c:65:9,Identifiers that define objects or functions with external linkage shall be unique
+5.8,REQUIRED,main.c:66:10,Identifiers that define objects or functions with external linkage shall be unique
+8.4,REQUIRED,main.c:68:6,A compatible declaration shall be visible when an object or function with external linkage is defined
+10.4,REQUIRED,main.c:73:24,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+10.4,REQUIRED,print.c:109:26,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+10.4,REQUIRED,print.c:111:14,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+10.4,REQUIRED,print.c:113:62,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+10.4,REQUIRED,print.c:117:42,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+7.4,REQUIRED,print.c:153:24,A string literal shall not be assigned to an object unless the object's type is pointer to const-qualified char
+7.4,REQUIRED,print.c:154:24,A string literal shall not be assigned to an object unless the object's type is pointer to const-qualified char
+7.4,REQUIRED,print.c:158:24,A string literal shall not be assigned to an object unless the object's type is pointer to const-qualified char
+7.4,REQUIRED,print.c:159:24,A string literal shall not be assigned to an object unless the object's type is pointer to const-qualified char
+7.4,REQUIRED,print.c:170:15,A string literal shall not be assigned to an object unless the object's type is pointer to const-qualified char
+7.4,REQUIRED,print.c:172:29,A string literal shall not be assigned to an object unless the object's type is pointer to const-qualified char
+7.4,REQUIRED,print.c:174:15,A string literal shall not be assigned to an object unless the object's type is pointer to const-qualified char
+7.4,REQUIRED,print.c:176:29,A string literal shall not be assigned to an object unless the object's type is pointer to const-qualified char
+7.4,REQUIRED,print.c:178:15,A string literal shall not be assigned to an object unless the object's type is pointer to const-qualified char
+8.7,ADVISORY,print.c:206:9,Functions and objects should not be defined with external linkage if the are referenced in only one translation unit
+4.1,REQUIRED,print.c:25:29,Octal and hexadecimal escape sequences shall be terminated
+4.1,REQUIRED,print.c:26:29,Octal and hexadecimal escape sequences shall be terminated
+4.1,REQUIRED,print.c:27:29,Octal and hexadecimal escape sequences shall be terminated
+10.4,REQUIRED,print.c:270:73,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+10.4,REQUIRED,print.c:272:32,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+10.4,REQUIRED,print.c:273:114,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+10.4,REQUIRED,print.c:279:73,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+4.1,REQUIRED,print.c:28:29,Octal and hexadecimal escape sequences shall be terminated
+10.4,REQUIRED,print.c:281:32,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+10.4,REQUIRED,print.c:282:114,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+10.4,REQUIRED,print.c:44:23,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+10.4,REQUIRED,print.c:46:49,Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category
+12.1,ADVISORY,print.c:67:33,The precedence of operators within expressions should be made explicit
+12.1,ADVISORY,print.c:69:113,The precedence of operators within expressions should be made explicit
+17.7,REQUIRED,print.c:71:11,The value returned by a function having non-void return type shall be used
+12.1,ADVISORY,print.c:79:33,The precedence of operators within expressions should be made explicit
+17.7,REQUIRED,print.c:81:15,The value returned by a function having non-void return type shall be used
+12.1,ADVISORY,print.c:82:41,The precedence of operators within expressions should be made explicit
+12.1,ADVISORY,print.c:83:41,The precedence of operators within expressions should be made explicit
+12.1,ADVISORY,print.c:84:41,The precedence of operators within expressions should be made explicit
+17.7,REQUIRED,print.c:86:11,The value returned by a function having non-void return type shall be used
+5.8,REQUIRED,print.h:143:41,Identifiers that define objects or functions with external linkage shall be unique
+2.5,ADVISORY,print.h:23:0,A project should not contain unused macro declarations
+2.4,ADVISORY,print.h:44:1,A project should not contain unused tag declarations
+8.9,ADVISORY,software_crc.c:26:17,An object should be defined at block scope if its identifier only appears in a single function
+8.9,ADVISORY,software_crc.c:27:17,An object should be defined at block scope if its identifier only appears in a single function
+8.9,ADVISORY,software_crc.c:31:16,An object should be defined at block scope if its identifier only appears in a single function
+2.5,ADVISORY,software_crc.h:22:0,A project should not contain unused macro declarations
+8.7,ADVISORY,swap.c:109:10,Functions and objects should not be defined with external linkage if the are referenced in only one translation unit
+8.9,ADVISORY,swap.c:23:16,An object should be defined at block scope if its identifier only appears in a single function
+14.4,REQUIRED,swap.c:32:11,The controlling expression of an if statement and the controlling expression of an iteration statement shall have essentially Boolean type
+10.1,REQUIRED,swap.c:34:26,Operands shall not be of an inappropriate essential type
+5.8,REQUIRED,swap.h:109:52,Identifiers that define objects or functions with external linkage shall be unique
+2.5,ADVISORY,swap.h:23:0,A project should not contain unused macro declarations
+5.8,REQUIRED,swap.h:76:36,Identifiers that define objects or functions with external linkage shall be unique
+5.8,REQUIRED,swap.h:99:37,Identifiers that define objects or functions with external linkage shall be unique

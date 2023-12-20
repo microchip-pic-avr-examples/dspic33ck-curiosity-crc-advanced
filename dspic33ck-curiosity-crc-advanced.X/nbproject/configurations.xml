@@ -110,7 +110,7 @@
         <targetDevice>dsPIC33CK256MP508</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>pkob4hybrid</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>2.10</languageToolchainVersion>
         <platform>3</platform>
@@ -1381,8 +1381,6 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-2beff"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/Users/C69672/CRC Project Bitbucket repositories/dspic33ck-curiosity-crc-advanced/dspic33ck-curiosity-crc-advanced.X/debug/default/dspic33ck-curiosity-crc-advanced_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

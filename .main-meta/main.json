@@ -7,7 +7,7 @@
       "version":"1.0.0",
       "displayName":"dsPIC33CK Curiosity Development Board - CRC Advanced Demo",
       "projectName":"dspic33ck-curiosity-crc-advanced",
-      "shortDescription":"This code example shows how to use the MPLAB® Code Configurator Melody CRC module to change CRC settings and compute a CRC value.",
+      "shortDescription":"This code example shows how to use the MPLAB® Code Configurator Melody CRC module to compute a CRC value by user selected CRC settings.",
       "ide":{
          "name":"MPLABX",
          "semverRange":">=5.40.0"
@@ -18,7 +18,7 @@
       },
       "dfp":{
          "name":"dsPIC33CK-MP_DFP",
-         "semverRange":">=1.12.354"
+         "semverRange":">=1.13.366"
       },
 	  "configurator": {
          "name": "MCC",

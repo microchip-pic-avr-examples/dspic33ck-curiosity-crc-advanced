@@ -24,8 +24,8 @@ The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://
 - MPLAB® Code Configurator (MCC) Melody **2.6.1** or newer (https://www.microchip.com/melody)
 - CRC Driver **1.0.3** or newer (MCC Content Manager)
 - CRC PLIB **1.3.0** or newer (MCC Content Manager)
-- UART Driver **1.8.0** or newer (MCC Content Manager)
-- UART PLIB **1.4.1** or newer (MCC Content Manager)
+- UART Driver **1.10.0** or newer (MCC Content Manager)
+- UART PLIB **1.5.0** or newer (MCC Content Manager)
 - Any terminal program, like MPLAB® Data Visualizer (https://www.microchip.com/datavisualizer) or Tera Term (https://ttssh2.osdn.jp/index.html.en)
 
 ## Hardware Used
@@ -74,11 +74,6 @@ The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://
 4. Go to Setup -> Serial port and ensure that the settings match the following:
 
     ![Tera Term Serial Port Settings](images/tera_term_serial_port_menu.JPG)
-
-### MPLAB® X IDE Setup
-
-1. Launch MPLAB® X IDE and load the dspic33ck-curiosity-crc-advanced project.
-2. Build and program the device. 
 
 ### Compiler Optimization
 
@@ -169,7 +164,7 @@ The menu will also be reprinted, allowing users to change settings to see how th
 
 **NOTE: If any settings are toggled after calculating, ensure to enter 'c' to recalculate with the new settings.**
 
-Enter "t" to progress to the virtual transmission and software CRC calculation. The data vector will be reprinted, showing what is being sent by the virtual transmitter. This is the data appended by the hardware CRC value. The data vector will be reprinted again. It will have the error caused by the virtual transmission, if enabled. This is what the virtual receiver receives. A software CRC calculation is then performed, and its results are printed.
+Enter "t" to progress to the virtual transmission and software CRC calculation. The data vector will be reprinted, showing what is being sent by the virtual transmitter. This is the data appended by the hardware CRC value. The data vector will be reprinted after the virtual transmission, and will have the error caused by the virtual transmission, if enabled. This data vector is what the virtual receiver receives. A software CRC calculation is then performed, and its results are printed.
 
 ![Transmission and Software CRC Result](images/advanced_software_crc_result.JPG)
 

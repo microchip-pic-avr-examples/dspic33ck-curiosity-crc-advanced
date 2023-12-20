@@ -116,7 +116,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="dsPIC33CK-MP_DFP" vendor="Microchip" version="1.12.354"/>
+        <pack name="dsPIC33CK-MP_DFP" vendor="Microchip" version="1.13.366"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -1381,6 +1381,8 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-2beff"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/C69672/CRC Project Bitbucket repositories/dspic33ck-curiosity-crc-advanced/dspic33ck-curiosity-crc-advanced.X/debug/default/dspic33ck-curiosity-crc-advanced_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

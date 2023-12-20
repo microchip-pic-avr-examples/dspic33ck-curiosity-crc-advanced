@@ -8,7 +8,7 @@
 
 **NOTE**: Basic Code Example for MCC Melody CRC Module: [dsPIC33CK Curiosity CRC Basic Code Example](https://github.com/microchip-pic-avr-examples/dspic33ck-curiosity-crc-basic)
 
-The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://www.npmjs.com/package/@mchp-mcc/crc-16bit-driver) to configure CRC using settings determined at runtime. These settings can be toggled with a menu that is displayed in the terminal. This will calculate the CRC value with a hardware implementation utilizing the MCC Melody CRC Module and a software implementation. These two values are then compared to verify the calculation.
+The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://www.npmjs.com/package/@mchp-mcc/crc-16bit-driver) to configure CRC using settings determined at runtime. These settings can be toggled with a menu that is displayed in the terminal. This will calculate the CRC value with a hardware implementation utilizing the MCC Melody CRC Module and a software implementation. These two values are then compared to verify the calculation. The calculations are also timed, and the results are printed at the end, along with some other benchmarking information.
 
 ## Related Documentation
 
@@ -26,7 +26,7 @@ The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://
 - CRC PLIB **1.3.0** or newer (MCC Content Manager)
 - UART Driver **1.8.0** or newer (MCC Content Manager)
 - UART PLIB **1.4.1** or newer (MCC Content Manager)
-- Any terminal program, like the MPLAB® Data Visualizer (https://www.microchip.com/datavisualizer) or Tera Term (https://ttssh2.osdn.jp/index.html.en)
+- Any terminal program, like MPLAB® Data Visualizer (https://www.microchip.com/datavisualizer) or Tera Term (https://ttssh2.osdn.jp/index.html.en)
 
 ## Hardware Used
 

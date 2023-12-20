@@ -90,11 +90,6 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
-      <logicalFolder name="crc_Demo_Advanced.mc3"
-                     displayName="crc_Demo_Advanced.mc3"
-                     projectFiles="true">
-        <itemPath>dspic33ck-curiosity-crc-advanced.mc3</itemPath>
-      </logicalFolder>
       <itemPath>Makefile</itemPath>
       <itemPath>dspic33ck-curiosity-crc-advanced.mc3</itemPath>
     </logicalFolder>

@@ -27,6 +27,7 @@ nbproject/dist/
 nbproject/private/
 nbproject/disassembly/
 build/
+debug/
 dist/
 private/
 disassembly/
@@ -49,6 +50,8 @@ Makefile-genesis.properties
 *.bak[0-9]
 *.doc
 *.docx
+report/
+queuelogs/
 
 
 

@@ -257,7 +257,7 @@ void printMenu(uint8_t* inputData[], uint8_t inputDataSize[])
     
     if(demoSettings.isHardwareCRCComplete)
     {
-        (void) printf("Type %st%s to begin virtual transmission.\r\n", TEXT_COLOR_GREEN, TEXT_COLOR_DEFAULT);
+        (void) printf("Type %st%s to begin virtual transmission and data validation.\r\n", TEXT_COLOR_GREEN, TEXT_COLOR_DEFAULT);
     }
     
     return;
@@ -292,12 +292,20 @@ void printTransmission(uint32_t transmission[], uint8_t inputDataSize)
 
 void printCompareCalculationResults(uint32_t transmittedValue, uint32_t calculatedValue)
 {
-    (void) printf("Virtual transmission %s%s%s. ", 
-        (transmittedValue == calculatedValue) ? TEXT_COLOR_GREEN : TEXT_COLOR_RED,
-        (transmittedValue == calculatedValue) ? "validated" : "invalid", TEXT_COLOR_DEFAULT);
+    (void) printf("Virtual transmission ");
+    if (transmittedValue == calculatedValue)
+    {
+        (void) printf("%svalidated%s. ", TEXT_COLOR_GREEN, TEXT_COLOR_DEFAULT);
+        (void) printf(crcSettings.isCRC32Bit ? "0x%08lX == 0x%08lX" : "0x%04lX == 0x%04lX", 
+            (unsigned long)transmittedValue, (unsigned long)calculatedValue);
+    }
+    else
+    {
+        (void) printf("%sinvalid%s. ", TEXT_COLOR_RED, TEXT_COLOR_DEFAULT);
+        (void) printf(crcSettings.isCRC32Bit ? "0x%08lX != 0x%08lX" : "0x%04lX != 0x%04lX", 
+            (unsigned long)transmittedValue, (unsigned long)calculatedValue);
+    }
     
-    (void) printf(crcSettings.isCRC32Bit ? "0x%08lX == 0x%08lX" : "0x%04lX == 0x%04lX", 
-        (unsigned long)transmittedValue, (unsigned long)calculatedValue);
     (void) printf("\r\n");
 }
 

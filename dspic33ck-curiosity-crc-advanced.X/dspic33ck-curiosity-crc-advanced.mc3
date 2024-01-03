@@ -247,11 +247,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\system\pins.h</file>
-         <hash>fd5cd06a850fdc13e71c45285e2a7315c5e7a462cfd77373f66db1ea18971bbc</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\system\reset.h</file>
-         <hash>09249cd8d5ef124be4d3c46724fe0cebecf43bef46026c4211012e2645d4af03</hash>
+         <hash>44db868bd3dc7ae3214871b86ca72a2ee542a5521510810ff7fab2a58879507f</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\system\reset_types.h</file>

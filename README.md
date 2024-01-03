@@ -180,7 +180,7 @@ Invalid transmission:
 
 ### Benchmarking
 
-The final part of the project is the benchmarking. While the hardware and software CRC values are being calculated, they are also being timed using the MCC Melody Timer module. The difference between the two values is also calculated. The benchmarking compares the performance of hardware CRC to software CRC for various CRC configurations. 
+The final part of the project is the benchmarking. While the hardware and software CRC values are being calculated, they are also being timed using the MCC Melody Timer module. The benchmarking compares the performance of hardware CRC to software CRC for various CRC configurations. 
 
 Additionally, the number of instruction cycles is printed for the software implementation.
 

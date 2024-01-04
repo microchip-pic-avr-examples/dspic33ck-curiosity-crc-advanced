@@ -41,7 +41,7 @@ CRC_SETTINGS crcSettings = {
     .isInitialZero = false, 
     .isLsb = false, 
     .isReversed = false,
-    .currentData = 1
+    .currentData = 0
 };
 
 DEMO_SETTINGS demoSettings = {
@@ -78,13 +78,13 @@ int main(void)
     SYSTEM_Initialize();
     UartSerial->RxCompleteCallbackRegister(&UART_ProcessCommand_Callback);
     
-    uint8_t data0[4] = {0x68, 0x69, 0x21, 0x20};
+    uint8_t data0[4] = {0x6c, 0x93};
     uint8_t data1[8] = {0x38, 0x37, 0x36, 0x35, 0x34, 0x33, 0x32, 0x31};
     uint8_t data2[16] = {0x2F, 0x2F, 0x20, 0x48, 0x65, 0x6C, 0x6C, 0x6F, 
                      0x20, 0x77, 0x6F, 0x72, 0x6C, 0x64, 0x21, 0x20};
     uint8_t data3[4] = {0x00, 0x00, 0x00, 0x00};
 
-    uint8_t dataSize[4] = {4, 8, 16, 4};
+    uint8_t dataSize[4] = {2, 8, 16, 4};
     uint8_t* data[4] = {data0, data1, data2, data3};
     
     uint32_t hardwareCRCTimerCount = 0;

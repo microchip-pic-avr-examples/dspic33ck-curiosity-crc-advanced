@@ -33,19 +33,26 @@ static void initialize32Bits(void)
     CRCCONHbits.PLEN = polynomialWidth32Bits - (uint16_t)1;
 }
 
-static void setInitialValue(bool isCRC32Active)
+static void setInitialValue(bool isCRC32Active, bool isInitialZero)
 {
     uint16_t indirect16BitData = 0x84CFu;
     uint32_t indirect32BitData = 0x46AF6449u;
-
-    if(isCRC32Active)
-    {
-        CRCWDATH = (uint16_t)(indirect32BitData >> 16);
-        CRCWDATL = (uint16_t)indirect32BitData;
+    
+    if (isInitialZero) {
+        CRCWDATH = 0;
+        CRCWDATL = 0;
     }
-    else
+    else 
     {
-        CRCWDATL = indirect16BitData;
+        if(isCRC32Active)
+        {
+            CRCWDATH = (uint16_t)(indirect32BitData >> 16);
+            CRCWDATL = (uint16_t)indirect32BitData;
+        }
+        else
+        {
+            CRCWDATL = indirect16BitData;
+        }
     }
 }
 
@@ -60,10 +67,7 @@ void configureHardwareCRC(CRC_SETTINGS settings)
     
     CRCCONLbits.LENDIAN = settings.isLsb ? 1 : 0;
 
-    if(!settings.isInitialZero)
-    {
-        setInitialValue(settings.isCRC32Bit);
-    }
+    setInitialValue(settings.isCRC32Bit, settings.isInitialZero);
 }
 
 uint32_t calculateHardwareCRC(CRC_SETTINGS settings, uint8_t inputData[], uint8_t inputDataSize)

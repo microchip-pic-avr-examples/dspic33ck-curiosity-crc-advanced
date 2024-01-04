@@ -79,7 +79,7 @@ The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://
 
 The MPLAB® XC16 compiler provides users with compiler optimization options. These options allow the user to speed up their code. This CRC Advanced Demo is functional at all optimization levels. 
 
-The optimization settings can be found in the project properties. Go to Project Properties -> XC16 -> Optimization Level to change optimization level for the project. The table below shows the optimization results for hardware and software CRC calculations with the default settings. 
+The optimization settings can be found in the project properties. Go to Project Properties -> XC16 -> Optimization Level to change optimization level for the project. The table below shows the optimization results for hardware and software CRC calculations with the default settings and data1. 
 
 | Optimization Level | Hardware CRC (Default Settings) | Software CRC (Default Settings) |
 |---|---|---|
@@ -95,7 +95,7 @@ The optimization settings can be found in the project properties. Go to Project 
 
 ## CRC Settings
 
-The CRC calculations performed in this code example have different settings that can be toggled at runtime.
+The CRC calculations performed in this code example have different settings that can be toggled at runtime. **Note:** Settings toggled at runtime will NOT be reflected in the MCC Melody CRC driver "Easy View."
 
 - Shift direction: The direction the data is shifted through the registers. Can start with the most significant bit (MSB) or the least significant bit (LSB)
 - Initial Value: The initial value of the CRC result. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
@@ -148,15 +148,15 @@ Upon building, a menu will be printed in the terminal program displaying the set
 | 4 | Final XOR Value | Final XOR Value | -1 (0xFFFF/0xFFFFFFFF) | 0 (0x0000/0x00000000) |
 | 5 | Polynomial | Polynomial | CRC-16-CCITT (0x1021) | CRC-32 (0x04C11DB7) |
 | 6 | Inject virtual transmission error **\*** | N/A | No | Yes |
-| 7 | Select Data Vector | Data | Data Submenu | N/A |
+| 7 | Select Data Sequence | Data | Data Submenu | N/A |
 
 **\*** Inject virtual transmission error - allows the user to force an error in the virtual transmission. It XOR's the first byte by 0x10. This demonstrates the CRC's error detection capabilities.
 
-If "7" is selected, the data submenu will be printed. Here, the user can select the data vector to be used in the calculations.
+If "7" is selected, the data submenu will be printed. Here, the user can select the data sequence to be used in the calculations.
 
 ![CRC Advanced Demo Data Sub-menu](images/advanced_data_submenu.JPG)
 
-Once the required settings are configured, enter "c" to begin the hardware calculation. The data vector will be reprinted, along with the result of the hardware CRC calculation.
+Once the required settings are configured, enter "c" to begin the hardware calculation. The data sequence will be reprinted, along with the result of the hardware CRC calculation.
 
 ![Hardware CRC Result](images/advanced_hardware_crc_output.JPG)
 
@@ -164,7 +164,7 @@ The menu will also be reprinted, allowing users to change settings to see how th
 
 **NOTE: If any settings are toggled after calculating, ensure to enter 'c' to recalculate with the new settings.**
 
-Enter "t" to progress to the virtual transmission and software CRC calculation. The data vector will be reprinted, showing what is being sent by the virtual transmitter. This is the data appended by the hardware CRC value. The data vector will be reprinted after the virtual transmission, and will have the error caused by the virtual transmission, if enabled. This data vector is what the virtual receiver receives. A software CRC calculation is then performed, and its results are printed.
+Enter "t" to progress to the virtual transmission and software CRC calculation. The data sequence will be reprinted, showing what is being sent by the virtual transmitter. This is the data appended by the hardware CRC value. The data sequence will be reprinted after the virtual transmission, and will have the error caused by the virtual transmission, if enabled. This data sequence is what the virtual receiver receives. A software CRC calculation is then performed, and its results are printed.
 
 ![Transmission and Software CRC Result](images/advanced_software_crc_result.JPG)
 

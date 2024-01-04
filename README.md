@@ -8,7 +8,7 @@
 
 **NOTE**: Basic Code Example for MCC Melody CRC Module: [dsPIC33CK Curiosity CRC Basic Code Example](https://github.com/microchip-pic-avr-examples/dspic33ck-curiosity-crc-basic)
 
-The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://www.npmjs.com/package/@mchp-mcc/crc-16bit-driver) to configure CRC using settings determined at runtime. These settings can be toggled with a menu that is displayed in the terminal. This will calculate the CRC value with a hardware implementation utilizing the MCC Melody CRC Module and a software implementation. These two values are then compared to verify the calculation. The calculations are also timed, and the results are printed at the end, along with some other benchmarking information.
+The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://www.npmjs.com/package/@mchp-mcc/crc-16bit-driver) to configure the CRC module using settings determined at runtime. These settings can be toggled with a menu that is displayed in the terminal. This will calculate the CRC value with a hardware implementation utilizing the MCC Melody CRC Module and a software implementation. These two values are then compared to verify the calculation. The calculations are also timed, and the results are printed at the end, along with other benchmarking information.
 
 ## Related Documentation
 
@@ -20,7 +20,7 @@ The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://
 
 - MPLAB® X IDE **6.15** or newer (https://www.microchip.com/MPLABXIDE)
 - MPLAB® XC16 Compiler **2.10** or a newer compiler (https://www.microchip.com/xc16)
-- MPLAB® Code Configurator (MCC) **5.5.7** or newer (https://www.microchip.com/mcc)
+- MPLAB® Code Configurator (MCC) **5.6.1** or newer (https://www.microchip.com/mcc)
 - MPLAB® Code Configurator (MCC) Melody **2.6.1** or newer (https://www.microchip.com/melody)
 - CRC Driver **1.0.3** or newer (MCC Content Manager)
 - CRC PLIB **1.3.0** or newer (MCC Content Manager)
@@ -89,7 +89,7 @@ The optimization settings can be found in the project properties. Go to Project 
 | s** |0.0086 ms|0.0126 ms|
 | 3** |0.0072 ms|0.0070 ms|
 
-*Project is set to this level
+*Project is set to this level by default
 
 **MPLAB® XC16 PRO optimizations
 
@@ -110,7 +110,7 @@ The CRC calculations performed in this code example have different settings that
 
 ### Online Calculator
 
-Online calculators can be used to test different configurations and try different settings. Most developers compare results with an online calculator for comparison purposes. An example that was used in the development of this code example is the [Online Calculator by Sven Reifegerste (Zorc)](http://www.zorc.breitbandkatze.de/crc.html).
+Online calculators can be used to test different configurations and try different settings. Most developers compare results with an online calculator. An example that was used in the development of this code example is the [Online Calculator by Sven Reifegerste (Zorc)](http://www.zorc.breitbandkatze.de/crc.html).
 
 **Online Calculator**:
 
@@ -134,7 +134,7 @@ Open the dspic33ck-curiosity-crc-advanced project in MPLAB® X IDE.
 
 Open the terminal program that will be used. 
 
-In MPLAB® X IDE, build and program the device.
+In the MPLAB® X IDE, build and program the device.
 
 Upon building, a menu will be printed in the terminal program displaying the settings the user is able to toggle by entering the corresponding number (1-7).
 
@@ -180,8 +180,10 @@ Invalid transmission:
 
 ### Benchmarking
 
-The final part of the project is the benchmarking. While the hardware and software CRC values are being calculated, they are also being timed using the MCC Melody Timer module. The difference between the two values is also calculated. The benchmarking compares the performance of hardware CRC to software CRC for various CRC configurations
+The final part of the project is the benchmarking. While the hardware and software CRC values are being calculated, they are also being timed using the MCC Melody Timer module. The benchmarking compares the performance of hardware CRC to software CRC for various CRC configurations. 
 
-![Benchmarking Results](images/advance_benchmarking.PNG)
+Additionally, the number of instruction cycles is printed for the software implementation.
+
+![Benchmarking Results](images/advanced_benchmarking.JPG)
 
 **NOTE:** This is not the fastest software implementation of CRC, but it is the simplest in terms of code. 

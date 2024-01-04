@@ -196,6 +196,7 @@ int main(void)
     Timer1.Stop();
     softwareCRCTimerCount = TMR1_Counter16BitGet();
     
+    (void) printf("\r\nValidating virtual transmission with software calculation.");
     printCRCCalculationResult(transmitterCRCResult);
     
     printCompareCalculationResults(

@@ -20,7 +20,7 @@ The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://
 
 - MPLAB® X IDE **6.15** or newer (https://www.microchip.com/MPLABXIDE)
 - MPLAB® XC16 Compiler **2.10** or a newer compiler (https://www.microchip.com/xc16)
-- MPLAB® Code Configurator (MCC) Plugin **5.4.1** or newer (https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
+- MPLAB® Code Configurator (MCC) Plugin **5.4.1** or newer (https://www.microchip.com/mcc)
 - MPLAB® Code Configurator (MCC) Core **5.6.1** or newer (https://www.microchip.com/mcc)
 - MPLAB® Code Configurator (MCC) Melody **2.6.1** or newer (https://www.microchip.com/melody)
 - CRC Driver **1.0.3** or newer (MCC Content Manager)

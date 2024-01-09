@@ -97,12 +97,12 @@ void print32BitArray(uint8_t array[], uint8_t arrayLength);
 void printSeparator(uint8_t length);
 
 /**
- * @brief        Prints the sub-menu for selecting the desired data vector.
+ * @brief        Prints the sub-menu for selecting the desired data sequence.
  * @param[in]    settings - struct that contains all of the boolean variables for all of the 
  *               settings
- * @param[in]    inputData - array that holds pointers to all four 8-bit data vectors
+ * @param[in]    inputData - array that holds pointers to all four 8-bit data sequences
  * @param[in]    inputDataSizes - array that holds the number of words in all 8-bit data
- *               vectors
+ *               sequences
  * @return       none
  */
 void printDataSubMenu(CRC_SETTINGS settings, uint8_t* inputData[], uint8_t inputDataSizes[]);
@@ -148,8 +148,8 @@ void printLine32BitDependent(const char* lineTitle, bool settingValue, bool is32
 void printMenu(uint8_t* inputData[], uint8_t inputDataSize[]);
 
 /**
- * @brief        Prints the transmission vector
- * @param[in]    transmission - vector to be printed
+ * @brief        Prints the transmission sequence
+ * @param[in]    transmission - sequence to be printed
  * @param[in]    inputDataSize - Number of 8-bit words in the transmission
  * @return       none
  */

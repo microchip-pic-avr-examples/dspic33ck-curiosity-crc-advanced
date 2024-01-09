@@ -80,7 +80,7 @@ The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://
 
 The MPLAB® XC16 compiler provides users with compiler optimization options. These options allow the user to speed up their code. This CRC Advanced Demo is functional at all optimization levels. 
 
-The optimization settings can be found in the project properties. Go to Project Properties -> XC16 -> Optimization Level to change optimization level for the project. The table below shows the optimization results for hardware and software CRC calculations with the default settings and data1. 
+The optimization settings can be found in the project properties. Go to Project Properties -> XC16 -> Optimization Level to change optimization level for the project. The table below shows the optimization results for hardware and software CRC calculations with the default settings. 
 
 | Optimization Level | Hardware CRC (Default Settings) | Software CRC (Default Settings) |
 |---|---|---|
@@ -96,7 +96,9 @@ The optimization settings can be found in the project properties. Go to Project 
 
 ## CRC Settings
 
-The CRC calculations performed in this code example have different settings that can be toggled at runtime. **Note:** Settings toggled at runtime will NOT be reflected in the MCC Melody CRC driver "Easy View."
+The CRC calculations performed in this code example have different settings that can be toggled at runtime.
+
+**Note:** Settings toggled at runtime will NOT be reflected in the MCC Melody CRC driver.
 
 - Shift direction: The direction the data is shifted through the registers. Can start with the most significant bit (MSB) or the least significant bit (LSB)
 - Initial Value: The initial value of the CRC result. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
@@ -104,10 +106,12 @@ The CRC calculations performed in this code example have different settings that
 - Final XOR Value: The value XOR'd with the CRC result after the calculation and any reverses. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
 - Polynomial: Generator polynomial used in the calculation of the CRC value. Many effective polynomials exist. This code example uses the polynomials for CRC-16-CCITT (0x1021) and CRC-32 (0x04C11DB7).
 - Data: The input data for which the CRC value is calculated. Can be any value of any length. Four data strings can be used in this code example:
-  - 0x6c, 0x93 (default data in the MCC Melody CRC Driver Simulator)
-  - 0x38, 0x37, 0x36, 0x35, 0x34, 0x33, 0x32, 0x31 ("87654321")
+  - 0x6c, 0x93 (default value configured in MCC Melody CRC Driver Simulator)
+  - **\*** 0x38, 0x37, 0x36, 0x35, 0x34, 0x33, 0x32, 0x31 ("87654321")
   - 0x2F, 0x2F, 0x20, 0x48, 0x65, 0x6C, 0x6C, 0x6F, 0x20, 0x77, 0x6F, 0x72, 0x6C, 0x64, 0x21, 0x20 ("// Hello world! ")
   - 0x00, 0x00, 0x00, 0x00 (All null characters)
+
+**\*** Default data sequence
 
 ### Online Calculator
 
@@ -153,7 +157,7 @@ Upon building, a menu will be printed in the terminal program displaying the set
 
 **\*** Inject virtual transmission error - allows the user to force an error in the virtual transmission. It XOR's the first byte by 0x10. This demonstrates the CRC's error detection capabilities.
 
-If "7" is selected, the data submenu will be printed. Here, the user can select the data sequence to be used in the calculations. Using this menu, data1 can be switched to, like in the image:
+If "7" is selected, the data submenu will be printed. Here, the user can select the data sequence to be used in the calculations. Using this menu, "2" can be entered, switching to the second data sequence.
 
 ![CRC Advanced Demo Data Sub-menu](images/advanced_data_submenu.JPG)
 

@@ -163,7 +163,7 @@ void printSeparator(uint8_t length)
 void printDataSubMenu(CRC_SETTINGS settings, uint8_t* inputData[], uint8_t inputDataSizes[])
 {
     printSeparator(MAX_LINE_WIDTH);
-    (void) printf("Select a data vector\r\n");
+    (void) printf("Select a data sequence\r\n");
     printSeparator(MAX_LINE_WIDTH);
     
     for(uint8_t i = 0; i < (uint8_t)4; i++)
@@ -240,7 +240,7 @@ void printMenu(uint8_t* inputData[], uint8_t inputDataSize[])
     (void) printf("6. Inject virtual transmission error: %s%s%s\r\n", TEXT_COLOR_GREEN, 
             crcSettings.hasTransmissionError ? "Yes" : "No", TEXT_COLOR_DEFAULT);
     
-    (void) printf("7. Select Data Vector\r\n   Current: ");
+    (void) printf("7. Select Data Sequence\r\n   Current: ");
     
     if(crcSettings.isCRC32Bit)
     {

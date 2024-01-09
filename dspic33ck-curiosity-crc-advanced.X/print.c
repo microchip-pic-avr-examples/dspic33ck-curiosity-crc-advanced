@@ -320,13 +320,13 @@ void printBenchmarkingResults(uint16_t hardwareCRCTimerCount, uint16_t softwareC
 {
     uint8_t timerPeriod = 2;
     
-    double hardwareCRCCalculationTime = timerCountToMs(hardwareCRCTimerCount, timerPeriod);
-    double softwareCRCCalculationTime = timerCountToMs(softwareCRCTimerCount, timerPeriod);
+    double hardwareCRCCalculationTime = (double) timerCountToMs(hardwareCRCTimerCount, timerPeriod);
+    double softwareCRCCalculationTime = (double) timerCountToMs(softwareCRCTimerCount, timerPeriod);
     
     (void) printf("\r\nBenchmarking:\r\n");
     (void) printf("Hardware Time: %.4f ms\n", hardwareCRCCalculationTime);
     (void) printf("Software Time: %.4f ms\n", softwareCRCCalculationTime);
     (void) printf("\r\nThe hardware calculation is %.2fx faster than the software calculation.\r\n", hardwareToSoftwareTimeRatio);
-    (void) printf("\r\nThe number of instruction cycles required for the software calculation: %lu\r\n", 
-            (unsigned long)(calculateInstructions(softwareCRCCalculationTime)));
+    (void) printf("\r\nThe number of instruction cycles required for the software calculation: %.0lf\r\n", 
+            (calculateInstructions(softwareCRCCalculationTime)));
 }

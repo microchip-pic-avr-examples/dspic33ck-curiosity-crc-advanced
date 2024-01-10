@@ -328,5 +328,5 @@ void printBenchmarkingResults(uint16_t hardwareCRCTimerCount, uint16_t softwareC
     (void) printf("Software Time: %.4f ms\n", softwareCRCCalculationTime);
     (void) printf("\r\nThe hardware calculation is %.2fx faster than the software calculation.\r\n", hardwareToSoftwareTimeRatio);
     (void) printf("\r\nThe number of instruction cycles required for the software calculation: %.0lf\r\n", 
-            (calculateInstructions(softwareCRCCalculationTime)));
+            ((double)calculateInstructions(softwareCRCCalculationTime)));
 }

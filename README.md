@@ -6,7 +6,7 @@
 
 # dsPIC33CK Curiosity CRC Advanced Code Example
 
-**NOTE**: Basic Code Example for MCC Melody CRC Module: [dsPIC33CK Curiosity CRC Basic Code Example](https://github.com/microchip-pic-avr-examples/dspic33ck-curiosity-crc-basic)
+**Basic Code Example for MCC Melody CRC Module**: [dsPIC33CK Curiosity CRC Basic Code Example](https://github.com/microchip-pic-avr-examples/dspic33ck-curiosity-crc-basic)
 
 The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://www.npmjs.com/package/@mchp-mcc/crc-16bit-driver) to configure the CRC module using settings determined at runtime. These settings can be toggled with a menu that is displayed in the terminal. This will calculate the CRC value with a hardware implementation utilizing the MCC Melody CRC Module and a software implementation. These two values are then compared to verify the calculation. The calculations are also timed, and the results are printed at the end, along with other benchmarking information.
 
@@ -136,11 +136,13 @@ Additionally, the number of instruction cycles is printed for the software imple
 
 Once the program is done, press the clear button on the board to start over.
 
-## CRC Settings
+## Operation with Toggled Settings
 
 The CRC calculations performed in this code example have different settings that can be toggled at runtime.
 
 **Note:** Settings toggled at runtime will NOT be reflected in the MCC Melody CRC driver.
+
+### CRC Settings
 
 - Shift direction: The direction the data is shifted through the registers. Can start with the most significant bit (MSB) or the least significant bit (LSB)
 - Initial Value: The initial value of the CRC result. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
@@ -152,7 +154,6 @@ The CRC calculations performed in this code example have different settings that
   - 0x38, 0x37, 0x36, 0x35, 0x34, 0x33, 0x32, 0x31 ("87654321")
   - 0x2F, 0x2F, 0x20, 0x48, 0x65, 0x6C, 0x6C, 0x6F, 0x20, 0x77, 0x6F, 0x72, 0x6C, 0x64, 0x21, 0x20 ("// Hello world! ")
   - 0x00, 0x00, 0x00, 0x00 (All null characters)
-
 
 ### Online Calculator
 
@@ -174,12 +175,13 @@ Online calculators can be used to test different configurations and try differen
 
 The firmware function CRC_CalculationGet() is where the Reverse and Final XOR Value settings are implemented.
 
-## Operation
+### Operation
 
-Upon building, a menu will be printed in the terminal program displaying the settings the user is able to toggle by entering the corresponding number (1-7).
+Upon building, the main menu will be printed again.
 
 ![CRC Advanced Code Example Menu](images/advanced_main_menu.JPG)
 
+Menu Options
 | Number | Menu Setting | MCC Melody CRC Setting | Option 1 | Option 2 |
 | --- | --- | --- | --- | --- |
 | 1 | Shift Direction | Shift Direction | MSB | LSB | 

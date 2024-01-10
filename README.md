@@ -107,11 +107,10 @@ The CRC calculations performed in this code example have different settings that
 - Polynomial: Generator polynomial used in the calculation of the CRC value. Many effective polynomials exist. This code example uses the polynomials for CRC-16-CCITT (0x1021) and CRC-32 (0x04C11DB7).
 - Data: The input data for which the CRC value is calculated. Can be any value of any length. Four data strings can be used in this code example:
   - 0x6c, 0x93 (default value configured in MCC Melody CRC Driver Simulator)
-  - **\*** 0x38, 0x37, 0x36, 0x35, 0x34, 0x33, 0x32, 0x31 ("87654321")
+  - 0x38, 0x37, 0x36, 0x35, 0x34, 0x33, 0x32, 0x31 ("87654321")
   - 0x2F, 0x2F, 0x20, 0x48, 0x65, 0x6C, 0x6C, 0x6F, 0x20, 0x77, 0x6F, 0x72, 0x6C, 0x64, 0x21, 0x20 ("// Hello world! ")
   - 0x00, 0x00, 0x00, 0x00 (All null characters)
 
-**\*** Default data sequence
 
 ### Online Calculator
 

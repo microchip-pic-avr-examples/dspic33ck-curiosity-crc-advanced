@@ -94,6 +94,48 @@ The optimization settings can be found in the project properties. Go to Project 
 
 **MPLAB® XC16 PRO optimizations
 
+## Default Operation
+
+Open the dspic33ck-curiosity-crc-advanced project in MPLAB® X IDE.
+
+Open the terminal program that will be used. 
+
+In the MPLAB® X IDE, build and program the device.
+
+Upon building, a menu will be printed in the terminal program displaying the settings the user is able to toggle by entering the corresponding number (1-7).
+
+![CRC Advanced Code Example Menu](images/advanced_main_menu.JPG)
+
+These options will be explained in a later section. For now, enter "c" to calculate. This performs a CRC calculation using the MCC Melody CRC module. The initial data is reprinted, along with the result of the hardware calculation:
+
+![Hardware CRC Result (Default Path)](images/default_hardwareCRC_result.JPG)
+
+The menu is also reprinted with a new option: "Type t to begin virtual transmission and data validation." Select this option to continue.
+
+![Software CRC Result and Virtual Transmission (Default Path)](images/default_softwareCRC_result.JPG)
+
+The data sequence will be reprinted, showing what is being sent by the virtual transmitter. This is the data appended by the hardware CRC value. Next, the data that is received by the virtual receiver is printed. A CRC calculation is run using the software implementation. The resulting value is compared to the hardware CRC result appended to the data in the virtual transmission. Whether or not the transmission has been validated will be printed:
+
+Successful Transmission:
+
+![Successful Transmission (Default Path)](images/default_valid_transmission.JPG)
+
+Invalid Transmission:
+
+![Invalid Transmission (Default Path)](images/default_invalid_transmission.JPG)
+
+### Benchmarking
+
+The final part of the project is the benchmarking. While the hardware and software CRC values are being calculated, they are also being timed using the MCC Melody Timer module. The benchmarking compares the performance of hardware CRC to software CRC for various CRC configurations. 
+
+Additionally, the number of instruction cycles is printed for the software implementation.
+
+![Benchmarking Results (Default Path)](images/default_benchmarking.JPG)
+
+**NOTE:** This is not the fastest software implementation of CRC, but it is the simplest in terms of code. 
+
+Once the program is done, press the clear button on the board to start over.
+
 ## CRC Settings
 
 The CRC calculations performed in this code example have different settings that can be toggled at runtime.
@@ -133,12 +175,6 @@ Online calculators can be used to test different configurations and try differen
 The firmware function CRC_CalculationGet() is where the Reverse and Final XOR Value settings are implemented.
 
 ## Operation
-
-Open the dspic33ck-curiosity-crc-advanced project in MPLAB® X IDE.
-
-Open the terminal program that will be used. 
-
-In the MPLAB® X IDE, build and program the device.
 
 Upon building, a menu will be printed in the terminal program displaying the settings the user is able to toggle by entering the corresponding number (1-7).
 
@@ -182,12 +218,4 @@ Invalid transmission:
 
 ![Invalid transmission](images/advanced_transmission_invalid.JPG)
 
-### Benchmarking
-
-The final part of the project is the benchmarking. While the hardware and software CRC values are being calculated, they are also being timed using the MCC Melody Timer module. The benchmarking compares the performance of hardware CRC to software CRC for various CRC configurations. 
-
-Additionally, the number of instruction cycles is printed for the software implementation.
-
 ![Benchmarking Results](images/advanced_benchmarking.JPG)
-
-**NOTE:** This is not the fastest software implementation of CRC, but it is the simplest in terms of code. 

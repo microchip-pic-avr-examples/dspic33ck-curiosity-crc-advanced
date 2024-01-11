@@ -50,9 +50,9 @@ enum
     ERROR
 };
 
-#define timerCountToMs(timerCount, timerPeriod) ((timerCount / (double)Timer1.PeriodGet()) * (double)timerPeriod)
+#define timerCountToMs(timerCount, timerPeriod) (((timerCount) / (double)Timer1.PeriodGet()) * (double)(timerPeriod))
 
-#define calculateInstructions(softwareCRCCalculationTime) ((double)CLOCK_InstructionFrequencyGet() * softwareCRCCalculationTime)
+#define calculateInstructions(softwareCRCCalculationTime) ((double)CLOCK_InstructionFrequencyGet() * (softwareCRCCalculationTime))
 
 //Section: Printing APIs
 

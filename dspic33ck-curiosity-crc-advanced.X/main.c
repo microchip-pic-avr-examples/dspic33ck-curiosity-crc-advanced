@@ -50,7 +50,7 @@ DEMO_SETTINGS demoSettings = {
     .isHardwareCRCComplete = false
 };
  
-volatile uint8_t transmitterStatus;
+static volatile uint8_t transmitterStatus;
 
 static void UART_ProcessCommand_Callback(void)
 {

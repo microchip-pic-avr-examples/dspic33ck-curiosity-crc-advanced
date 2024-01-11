@@ -220,4 +220,6 @@ Invalid transmission:
 
 ![Invalid transmission](images/advanced_transmission_invalid.JPG)
 
+Like before, benchmarking will be performed.
+
 ![Benchmarking Results](images/advanced_benchmarking.JPG)

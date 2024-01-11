@@ -177,7 +177,7 @@ The firmware function CRC_CalculationGet() is where the Reverse and Final XOR Va
 
 ### Operation
 
-Upon building, the main menu will be printed again.
+After pressing the clear button, the main menu will be printed again.
 
 ![CRC Advanced Code Example Menu](images/advanced_main_menu.JPG)
 

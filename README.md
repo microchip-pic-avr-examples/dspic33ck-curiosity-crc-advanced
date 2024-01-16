@@ -110,7 +110,9 @@ The optimization settings can be found in the project properties. Go to Project 
 
     ![Hardware CRC Result (Default Path)](images/default_hardwareCRC_result.JPG)
 
-5. The menu is also reprinted with a new option: "Type t to begin virtual transmission and data validation." Select this option to continue.
+    The menu is also reprinted with a new option: "Type t to begin virtual transmission and data validation."
+
+5.  Enter "t" to continue.
 
 6. The terminal will now print the process for virtual transmission. 
     - The virtually transmitted message is comprised of the previous hardware CRC calculation's "Initial Data" with the "CRC Value" appended to the end. 
@@ -139,13 +141,13 @@ The optimization settings can be found in the project properties. Go to Project 
 
 Benchmarking timing results are recorded using the MCC Melody Timer module while the hardware and software CRC values are being calculated. This is where a comparison of the performance of both CRC implementations are made. Additionally, the number of instruction cycles is printed for the software implementation.
 
-**NOTE**: Faster and more complex software CRC implementations exist compared to the one used in this demo's firmware.
+**NOTE: Faster and more complex software CRC implementations exist compared to the one used in this demo's firmware.**
 
 ## Operation with Toggled Settings
 
 The CRC calculations performed in this code example have different settings that can be toggled at runtime.
 
-**NOTE:** Settings toggled at runtime will NOT be reflected in the MCC Melody CRC driver.
+**NOTE: Settings toggled at runtime will NOT be reflected in the MCC Melody CRC driver.**
 
 ### CRC Settings
 
@@ -168,13 +170,13 @@ Online calculators can be used to test different configurations and try differen
 
 ![Labeled Online Calculator](images/online_calculator_UI.JPG)
 
-**NOTE**: Number 8, Seed Shift Direction, is assumed to be MSB in this online calculator.
+**NOTE: Number 8, Seed Shift Direction, is assumed to be MSB in this online calculator.**
 
 **MCC Melody**: 
 
 ![Labeled MCC Melody UI](images/demo_CRC_settings.JPG)
 
-**NOTE:** The "Reverse CRC value" and "Final XOR Value" only work for the simulator, they will not be used in the firmware calculations.
+**NOTE: The "Reverse CRC value" and "Final XOR Value" only work for the simulator, they will not be used in the firmware calculations.**
 
 ![Labeled CRC_CalculationResultGet()](images/CRC_CalculationResultGet.JPG)
 
@@ -211,7 +213,7 @@ The firmware function CRC_CalculationGet() is where the Reverse and Final XOR Va
 
     The menu will also be reprinted, allowing users to change settings to see how the CRC value adjusts. 
 
-    **NOTE**: If any settings are toggled after calculating, ensure to enter 'c' to recalculate with the new settings.
+    **NOTE: If any settings are toggled after calculating, ensure to enter 'c' to recalculate with the new settings.**
 
 4. Enter "t" to progress to the virtual transmission and software CRC calculation. The data sequence will be reprinted, showing what is being sent by the virtual transmitter. This is the data appended by the hardware CRC value. The data sequence will be reprinted after the virtual transmission, and will have the error caused by the virtual transmission, if enabled. This data sequence is what the virtual receiver receives. A software CRC calculation is then performed, and its results are printed.
 

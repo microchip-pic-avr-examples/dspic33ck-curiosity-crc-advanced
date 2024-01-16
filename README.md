@@ -96,51 +96,56 @@ The optimization settings can be found in the project properties. Go to Project 
 
 ## Default Operation
 
-Open the dspic33ck-curiosity-crc-advanced project in MPLAB® X IDE.
+1. Open the dspic33ck-curiosity-crc-advanced project in MPLAB® X IDE.
 
-Open the terminal program that will be used. 
+2. Open the terminal program that will be used. 
 
-In the MPLAB® X IDE, build and program the device.
+3. In the MPLAB® X IDE, build and program the device. Within the terminal program a menu will be printed out displaying the settings. Below the menu there are two prompts for entering inputs. These single character inputs can be typed into the terminal and are entered by pressing the enter key.
 
-Upon building, a menu will be printed in the terminal program displaying the settings the user is able to toggle by entering the corresponding number (1-7).
+    ![CRC Advanced Code Example Menu](images/advanced_main_menu.JPG)
 
-![CRC Advanced Code Example Menu](images/advanced_main_menu.JPG)
+    These options will be explained in a later section. 
 
-These options will be explained in a later section. For now, enter "c" to calculate. This performs a CRC calculation using the MCC Melody CRC module. The initial data is reprinted, along with the result of the hardware calculation:
+4. Enter "c" to calculate. This performs a CRC calculation using the MCC Melody CRC module with the current selections in the menu. The data being used is then reprinted to the terminal, along with the result of the hardware CRC calculation:
 
-![Hardware CRC Result (Default Path)](images/default_hardwareCRC_result.JPG)
+    ![Hardware CRC Result (Default Path)](images/default_hardwareCRC_result.JPG)
 
-The menu is also reprinted with a new option: "Type t to begin virtual transmission and data validation." Select this option to continue.
+5. The menu is also reprinted with a new option: "Type t to begin virtual transmission and data validation." Select this option to continue.
 
-![Software CRC Result and Virtual Transmission (Default Path)](images/default_softwareCRC_result.JPG)
+6. The terminal will now print the process for virtual transmission. 
+    - The virtually transmitted message is comprised of the previous hardware CRC calculation's "Initial Data" with the "CRC Value" appended to the end. 
+    - The virtual receiver will then print the message that was received. Any errors created during transmission (caused by toggling option 6 in the menu to be "Yes") will show up here.
+    - The virtual receiver will perform a software CRC calculation on the "Initial Data" (NOT including the appended CRC value) received with the current settings selected. It then prints the CRC value calculated.
 
-The data sequence will be reprinted, showing what is being sent by the virtual transmitter. This is the data appended by the hardware CRC value. Next, the data that is received by the virtual receiver is printed. A CRC calculation is run using the software implementation. The resulting value is compared to the hardware CRC result appended to the data in the virtual transmission. Whether or not the transmission has been validated will be printed:
+    ![Software CRC Result and Virtual Transmission (Default Path)](images/default_softwareCRC_result.JPG)
 
-Successful Transmission:
+7. The virtual transmission will then be complete by validating the virtual receiver's software CRC calculation against the appended CRC value from the virtual message.  
+   
+    - Successful Transmission:
 
-![Successful Transmission (Default Path)](images/default_valid_transmission.JPG)
+        ![Successful Transmission (Default Path)](images/default_valid_transmission.JPG)
 
-Invalid Transmission:
+    - Invalid Transmission:
 
-![Invalid Transmission (Default Path)](images/default_invalid_transmission.JPG)
+        ![Invalid Transmission (Default Path)](images/default_invalid_transmission.JPG)
+
+8. After virtual transmission is complete Benchmarking results will be printed. This section and the printed values are explained further in the **Benchmarking** section below.
+   
+    ![Benchmarking Results (Default Path)](images/default_benchmarking.JPG)
+
+9. After the benchmarking is printed the program will end. **Once the program is done, press the clear (or MCLR) button on the board to start over.**
 
 ### Benchmarking
 
-The final part of the project is the benchmarking. While the hardware and software CRC values are being calculated, they are also being timed using the MCC Melody Timer module. The benchmarking compares the performance of hardware CRC to software CRC for various CRC configurations. 
+Benchmarking timing results are recorded using the MCC Melody Timer module while the hardware and software CRC values are being calculated. This is where a comparison of the performance of both CRC implementations are made. Additionally, the number of instruction cycles is printed for the software implementation.
 
-Additionally, the number of instruction cycles is printed for the software implementation.
-
-![Benchmarking Results (Default Path)](images/default_benchmarking.JPG)
-
-**NOTE:** This is not the fastest software implementation of CRC, but it is the simplest in terms of code. 
-
-Once the program is done, press the clear button on the board to start over.
+**NOTE**: Faster and more complex software CRC implementations exist compared to the one used in this demo's firmware.
 
 ## Operation with Toggled Settings
 
 The CRC calculations performed in this code example have different settings that can be toggled at runtime.
 
-**Note:** Settings toggled at runtime will NOT be reflected in the MCC Melody CRC driver.
+**NOTE:** Settings toggled at runtime will NOT be reflected in the MCC Melody CRC driver.
 
 ### CRC Settings
 
@@ -163,13 +168,13 @@ Online calculators can be used to test different configurations and try differen
 
 ![Labeled Online Calculator](images/online_calculator_UI.JPG)
 
-**Note**: Number 8, Seed Shift Direction, is assumed to be MSB in this online calculator.
+**NOTE**: Number 8, Seed Shift Direction, is assumed to be MSB in this online calculator.
 
 **MCC Melody**: 
 
 ![Labeled MCC Melody UI](images/demo_CRC_settings.JPG)
 
-**Note**: The "Reverse CRC value" and "Final XOR Value" only work for the simulator, they will not be used in the firmware calculations.
+**NOTE:** The "Reverse CRC value" and "Final XOR Value" only work for the simulator, they will not be used in the firmware calculations.
 
 ![Labeled CRC_CalculationResultGet()](images/CRC_CalculationResultGet.JPG)
 
@@ -177,49 +182,53 @@ The firmware function CRC_CalculationGet() is where the Reverse and Final XOR Va
 
 ### Operation
 
-After pressing the clear button, the main menu will be printed again.
+1. After pressing the clear button, the main menu will be printed again. 
 
-![CRC Advanced Code Example Menu](images/advanced_main_menu.JPG)
+    ![CRC Advanced Code Example Menu](images/advanced_main_menu.JPG)
 
-Menu Options
-| Number | Menu Setting | MCC Melody CRC Setting | Option 1 | Option 2 |
-| --- | --- | --- | --- | --- |
-| 1 | Shift Direction | Shift Direction | MSB | LSB | 
-| 2 | Initial Value | Initial Value | -1 (0xFFFF/0xFFFFFFFF) | 0 (0x0000/0x00000000) |
-| 3 | Reverse Result | Reverse | Not Reversed | Reversed |
-| 4 | Final XOR Value | Final XOR Value | -1 (0xFFFF/0xFFFFFFFF) | 0 (0x0000/0x00000000) |
-| 5 | Polynomial | Polynomial | CRC-16-CCITT (0x1021) | CRC-32 (0x04C11DB7) |
-| 6 | Inject virtual transmission error **\*** | N/A | No | Yes |
-| 7 | Select Data Sequence | Data | Data Submenu | N/A |
+    Menu Options
+    | Number | Menu Setting | MCC Melody CRC Setting | Option 1 | Option 2 |
+    | --- | --- | --- | --- | --- |
+    | 1 | Shift Direction | Shift Direction | MSB | LSB | 
+    | 2 | Initial Value | Initial Value | -1 (0xFFFF/0xFFFFFFFF) | 0 (0x0000/0x00000000) |
+    | 3 | Reverse Result | Reverse | Not Reversed | Reversed |
+    | 4 | Final XOR Value | Final XOR Value | -1 (0xFFFF/0xFFFFFFFF) | 0 (0x0000/0x00000000) |
+    | 5 | Polynomial | Polynomial | CRC-16-CCITT (0x1021) | CRC-32 (0x04C11DB7) |
+    | 6 | Inject virtual transmission error **\*** | N/A | No | Yes |
+    | 7 | Select Data Sequence | Data | Data Submenu | N/A |
 
-**\*** Inject virtual transmission error - allows the user to force an error in the virtual transmission. It XOR's the first byte by 0x10. This demonstrates the CRC's error detection capabilities.
+    **\*** Inject virtual transmission error - allows the user to force an error in the virtual transmission. It XOR's the first byte by 0x10. This demonstrates the CRC's error detection capabilities.
 
-If "7" is selected, the data submenu will be printed. Here, the user can select the data sequence to be used in the calculations. Using this menu, "2" can be entered, switching to the second data sequence.
+2. The settings can be toggled by entering the number associated with the setting.
+   
+   If "7" is selected, the data submenu will be printed. Here, the user can select the data sequence to be used in the calculations. Using this menu, "2" can be entered, switching to the second data sequence.
 
-![CRC Advanced Demo Data Sub-menu](images/advanced_data_submenu.JPG)
+    ![CRC Advanced Demo Data Sub-menu](images/advanced_data_submenu.JPG)
 
-Once the required settings are configured, enter "c" to begin the hardware calculation. The data sequence will be reprinted, along with the result of the hardware CRC calculation.
+3. Once the required settings are configured, enter "c" to begin the hardware calculation. The data sequence will be reprinted, along with the result of the hardware CRC calculation.
 
-![Hardware CRC Result](images/advanced_hardware_crc_output.JPG)
+    ![Hardware CRC Result](images/advanced_hardware_crc_output.JPG)
 
-The menu will also be reprinted, allowing users to change settings to see how the CRC value adjusts. 
+    The menu will also be reprinted, allowing users to change settings to see how the CRC value adjusts. 
 
-**NOTE: If any settings are toggled after calculating, ensure to enter 'c' to recalculate with the new settings.**
+    **NOTE**: If any settings are toggled after calculating, ensure to enter 'c' to recalculate with the new settings.
 
-Enter "t" to progress to the virtual transmission and software CRC calculation. The data sequence will be reprinted, showing what is being sent by the virtual transmitter. This is the data appended by the hardware CRC value. The data sequence will be reprinted after the virtual transmission, and will have the error caused by the virtual transmission, if enabled. This data sequence is what the virtual receiver receives. A software CRC calculation is then performed, and its results are printed.
+4. Enter "t" to progress to the virtual transmission and software CRC calculation. The data sequence will be reprinted, showing what is being sent by the virtual transmitter. This is the data appended by the hardware CRC value. The data sequence will be reprinted after the virtual transmission, and will have the error caused by the virtual transmission, if enabled. This data sequence is what the virtual receiver receives. A software CRC calculation is then performed, and its results are printed.
 
-![Transmission and Software CRC Result](images/advanced_software_crc_result.JPG)
+    ![Transmission and Software CRC Result](images/advanced_software_crc_result.JPG)
 
-The software CRC calculation result is compared with the value of the hardware CRC result from the virtual message. It will print whether or not the transmission has been validated. 
+5. The software CRC calculation result is compared with the value of the hardware CRC result from the virtual message. It will print whether or not the transmission has been validated. 
 
-Successful transmission:
+    Successful transmission:
 
-![Valid transmission](images/advanced_transmission_valid.JPG)
+    ![Valid transmission](images/advanced_transmission_valid.JPG)
 
-Invalid transmission:
+    Invalid transmission:
 
-![Invalid transmission](images/advanced_transmission_invalid.JPG)
+    ![Invalid transmission](images/advanced_transmission_invalid.JPG)
 
-Like before, benchmarking will be performed.
+6. Like before, benchmarking will be performed.
 
-![Benchmarking Results](images/advanced_benchmarking.JPG)
+    ![Benchmarking Results](images/advanced_benchmarking.JPG)
+
+7. After the benchmarking is printed the program will end. **Once the program is done, press the clear (or MCLR) button on the board to start over.**

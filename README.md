@@ -10,13 +10,13 @@
 
 The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://www.npmjs.com/package/@mchp-mcc/crc-16bit-driver) to configure the CRC module using settings determined at runtime. These settings can be toggled with a menu that is displayed in the terminal. This will calculate the CRC value with a hardware implementation utilizing the MCC Melody CRC Module and a software implementation. These two values are then compared to verify the calculation. The calculations are also timed, and the results are printed at the end, along with other benchmarking information.
 
-## Related Documentation
+# Related Documentation
 
 [MCC Melody CRC API Reference](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=CRC_16BIT_MELODY_DRIVER&version=latest&redirect=true)
 
-## Software Used
+# Software Used
 
-### Required Software
+## Required Software
 
 - MPLAB® X IDE **6.15** or newer (https://www.microchip.com/MPLABXIDE)
 - MPLAB® XC16 Compiler **2.10** or a newer compiler (https://www.microchip.com/xc16)
@@ -29,21 +29,21 @@ The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://
 - UART PLIB **1.5.0** or newer (MCC Content Manager)
 - Any terminal program, like MPLAB® Data Visualizer (https://www.microchip.com/datavisualizer) or Tera Term (https://ttssh2.osdn.jp/index.html.en)
 
-## Hardware Used
+# Hardware Used
 
-### Required Hardware
+## Required Hardware
 
 - [dsPIC33CK Curiosity Development Board (dsPIC33CK256MP508)](https://www.microchip.com/en-us/development-tool/DM330030)
 
-## Hardware Setup
+# Hardware Setup
 
 1. Connect the board to the PC using a USB cable.
 
     ![Hardware Setup Image](images/hardware_setup.jpg)
 
-## Software Setup
+# Software Setup
 
-### Terminal Setup (Data Visualizer)
+## Terminal Setup (Data Visualizer)
 
 1. Launch the MPLAB® Data Visualizer.
 
@@ -65,7 +65,7 @@ The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://
 
     ![Source Settings Menu](images/dv_source_settings.JPG)
 
-### Terminal Setup (Tera Term)
+## Terminal Setup (Tera Term)
 1. Launch Tera Term
 2. Go to File -> New Connection.
 3. Select the "Serial" option and select the correct COM Port from the dropdown menu.
@@ -76,7 +76,7 @@ The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://
 
     ![Tera Term Serial Port Settings](images/tera_term_serial_port_menu.JPG)
 
-### Compiler Optimization
+## Compiler Optimization
 
 The MPLAB® XC16 compiler provides users with compiler optimization options. These options allow the user to speed up their code. This CRC Advanced Demo is functional at all optimization levels. 
 
@@ -94,7 +94,7 @@ The optimization settings can be found in the project properties. Go to Project 
 
 **MPLAB® XC16 PRO optimizations
 
-## Default Operation
+# Default Operation
 
 1. Open the dspic33ck-curiosity-crc-advanced project in MPLAB® X IDE.
 
@@ -137,19 +137,19 @@ The optimization settings can be found in the project properties. Go to Project 
 
 9. After the benchmarking is printed the program will end. **Once the program is done, press the clear (or MCLR) button on the board to start over.**
 
-### Benchmarking
+## Benchmarking
 
 Benchmarking timing results are recorded using the MCC Melody Timer module while the hardware and software CRC values are being calculated. This is where a comparison of the performance of both CRC implementations are made. Additionally, the number of instruction cycles is printed for the software implementation.
 
 **NOTE: Faster and more complex software CRC implementations exist compared to the one used in this demo's firmware.**
 
-## Operation with Toggled Settings
+# Operation with Toggled Settings
 
 The CRC calculations performed in this code example have different settings that can be toggled at runtime.
 
 **NOTE: Settings toggled at runtime will NOT be reflected in the MCC Melody CRC driver.**
 
-### CRC Settings
+## CRC Settings
 
 - Shift direction: The direction the data is shifted through the registers. Can start with the most significant bit (MSB) or the least significant bit (LSB)
 - Initial Value: The initial value of the CRC result. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
@@ -162,7 +162,7 @@ The CRC calculations performed in this code example have different settings that
   - 0x2F, 0x2F, 0x20, 0x48, 0x65, 0x6C, 0x6C, 0x6F, 0x20, 0x77, 0x6F, 0x72, 0x6C, 0x64, 0x21, 0x20 ("// Hello world! ")
   - 0x00, 0x00, 0x00, 0x00 (All null characters)
 
-### Online Calculator
+## Online Calculator
 
 Online calculators can be used to test different configurations and try different settings. Most developers compare results with an online calculator. An example that was used in the development of this code example is the [Online Calculator by Sven Reifegerste (Zorc)](http://www.zorc.breitbandkatze.de/crc.html).
 
@@ -182,7 +182,7 @@ Online calculators can be used to test different configurations and try differen
 
 The firmware function CRC_CalculationGet() is where the Reverse and Final XOR Value settings are implemented.
 
-### Operation
+## Operation
 
 1. After pressing the clear button, the main menu will be printed again. 
 

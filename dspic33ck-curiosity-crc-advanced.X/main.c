@@ -84,7 +84,7 @@ int main(void)
                      0x20, 0x77, 0x6F, 0x72, 0x6C, 0x64, 0x21, 0x20};
     uint8_t data3[4] = {0x00, 0x00, 0x00, 0x00};
 
-    uint8_t dataSize[4] = {2, 8, 16, 4};
+    uint32_t dataSize[4] = {2, 8, 16, 4};
     uint8_t* data[4] = {data0, data1, data2, data3};
     
     uint32_t hardwareCRCTimerCount = 0;
@@ -123,13 +123,11 @@ int main(void)
                     
                     configureHardwareCRC(crcSettings);
                     
-                    //Timer1.Initialize();
                     transmitterCRCResult = calculateHardwareCRC(
                             crcSettings, 
                             data[crcSettings.currentData], 
                             dataSize[crcSettings.currentData]);
                     
-                    //Timer1.Stop();
                     hardwareCRCTimerCount = TMR1_Counter16BitGet();
                     
                     printCRCCalculationResult(transmitterCRCResult);
@@ -187,13 +185,11 @@ int main(void)
     
     configureSoftwareCRC(crcSettings);
     
-    //Timer1.Initialize();
     receiverCRCResult = calculateSoftwareCRC(
             crcSettings, 
             receiverBuffer, 
             dataSize[crcSettings.currentData]);
     
-    //Timer1.Stop();
     softwareCRCTimerCount = TMR1_Counter16BitGet();
     
     (void) printf("\r\nValidating virtual transmission with software calculation.");

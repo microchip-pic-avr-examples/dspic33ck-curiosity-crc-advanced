@@ -24,13 +24,11 @@
 
 #define MAX_DATA_SIZE 8
 
-//extern uint32_t hardwareCRCTimerCount = 0;
-
 static void initialize32Bits(void)
 {
     uint32_t polynomialXOR32Bits = 0x04C11DB7u;
     uint16_t polynomialWidth32Bits = 32;
-
+    
     CRCXORL = (uint16_t)polynomialXOR32Bits;
     CRCXORH = (uint16_t)(polynomialXOR32Bits >> 16);
     CRCCONHbits.PLEN = polynomialWidth32Bits - (uint16_t)1;
@@ -73,19 +71,18 @@ void configureHardwareCRC(CRC_SETTINGS settings)
     setInitialValue(settings.isCRC32Bit, settings.isInitialZero);
 }
 
-uint32_t calculateHardwareCRC(CRC_SETTINGS settings, uint8_t inputData[], uint8_t inputDataSize)
+uint32_t calculateHardwareCRC(CRC_SETTINGS settings, uint8_t inputData[], uint32_t inputDataSize)
 {
     uint32_t crcResult = 0;
     
     Timer1.Initialize();
-    CRC_CalculateBufferStart(inputData, inputDataSize);
+    CRC_CalculateBufferStart(&inputData[0], inputDataSize);
     
     while(!CRC_CalculationIsDone()) 
     {
         CRC_Tasks();
     }
     Timer1.Stop();
-    //hardwareCRCTimerCount = TMR1_Counter16BitGet();
     
     if(settings.isCRC32Bit)
     {

@@ -27,8 +27,6 @@
 static uint32_t softwareCRCResult = 0;
 static uint16_t softwareCRC16BitResult = 0;
 
-//extern uint32_t softwareCRCTimerCount = 0;
-
 void configureSoftwareCRC(CRC_SETTINGS settings)
 {
     if(settings.isCRC32Bit)
@@ -110,7 +108,6 @@ uint32_t calculateSoftwareCRC(CRC_SETTINGS settings, uint8_t message[], uint8_t 
     }
     
     Timer1.Stop();
-    //softwareCRCTimerCount = TMR1_Counter16BitGet();
     
     if(settings.isCRC32Bit)
     {

@@ -123,13 +123,13 @@ int main(void)
                     
                     configureHardwareCRC(crcSettings);
                     
-                    Timer1.Initialize();
+                    //Timer1.Initialize();
                     transmitterCRCResult = calculateHardwareCRC(
                             crcSettings, 
                             data[crcSettings.currentData], 
                             dataSize[crcSettings.currentData]);
                     
-                    Timer1.Stop();
+                    //Timer1.Stop();
                     hardwareCRCTimerCount = TMR1_Counter16BitGet();
                     
                     printCRCCalculationResult(transmitterCRCResult);
@@ -187,13 +187,13 @@ int main(void)
     
     configureSoftwareCRC(crcSettings);
     
-    Timer1.Initialize();
+    //Timer1.Initialize();
     receiverCRCResult = calculateSoftwareCRC(
             crcSettings, 
             receiverBuffer, 
             dataSize[crcSettings.currentData]);
     
-    Timer1.Stop();
+    //Timer1.Stop();
     softwareCRCTimerCount = TMR1_Counter16BitGet();
     
     (void) printf("\r\nValidating virtual transmission with software calculation.");

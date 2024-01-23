@@ -20,8 +20,11 @@
 */
 
 #include "hardware_crc.h"
+#include "mcc_generated_files/timer/tmr1.h"
 
 #define MAX_DATA_SIZE 8
+
+//extern uint32_t hardwareCRCTimerCount = 0;
 
 static void initialize32Bits(void)
 {
@@ -74,12 +77,15 @@ uint32_t calculateHardwareCRC(CRC_SETTINGS settings, uint8_t inputData[], uint8_
 {
     uint32_t crcResult = 0;
     
+    Timer1.Initialize();
     CRC_CalculateBufferStart(inputData, inputDataSize);
     
     while(!CRC_CalculationIsDone()) 
     {
         CRC_Tasks();
     }
+    Timer1.Stop();
+    //hardwareCRCTimerCount = TMR1_Counter16BitGet();
     
     if(settings.isCRC32Bit)
     {

@@ -160,7 +160,7 @@ void printSeparator(uint8_t length)
     (void) printf("\r\n");
 }
 
-void printDataSubMenu(CRC_SETTINGS settings, uint8_t* inputData[], uint8_t inputDataSizes[])
+void printDataSubMenu(CRC_SETTINGS settings, uint8_t* inputData[], uint32_t inputDataSizes[])
 {
     printSeparator(MAX_LINE_WIDTH);
     (void) printf("Select a data sequence\r\n");
@@ -221,7 +221,7 @@ void printLine32BitDependent(const char* lineTitle, bool settingValue, bool is32
     (void) printf("\r\n");
 }
 
-void printMenu(uint8_t* inputData[], uint8_t inputDataSize[])
+void printMenu(uint8_t* inputData[], uint32_t inputDataSize[])
 {
     printSeparator(MAX_LINE_WIDTH);
     (void) printf("Current Settings\r\n");

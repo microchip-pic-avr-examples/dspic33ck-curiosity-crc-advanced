@@ -101,7 +101,7 @@ void printSeparator(uint8_t length);
  *               sequences
  * @return       none
  */
-void printDataSubMenu(CRC_SETTINGS settings, uint8_t* inputData[], uint8_t inputDataSizes[]);
+void printDataSubMenu(CRC_SETTINGS settings, uint8_t* inputData[], uint32_t inputDataSizes[]);
 
 /**
  * @brief        Prints an input string with a color based on the input setting
@@ -141,7 +141,7 @@ void printLine32BitDependent(const char* lineTitle, bool settingValue, bool is32
  * @param[in]    inputDataSize - Number of words in the 8-bit data to be printed
  * @return       none
  */
-void printMenu(uint8_t* inputData[], uint8_t inputDataSize[]);
+void printMenu(uint8_t* inputData[], uint32_t inputDataSize[]);
 
 /**
  * @brief        Prints the transmission sequence

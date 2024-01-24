@@ -8,7 +8,7 @@
 
 **Basic Code Example for MCC Melody CRC Module**: [dsPIC33CK Curiosity CRC Basic Code Example](https://github.com/microchip-pic-avr-examples/dspic33ck-curiosity-crc-basic)
 
-The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://www.npmjs.com/package/@mchp-mcc/crc-16bit-driver) to configure the CRC module using settings determined at runtime. These settings can be toggled with a menu that is displayed in the terminal. This will calculate the CRC value with a hardware implementation utilizing the MCC Melody CRC Module and a software implementation. These two values are then compared to verify the calculation. The calculations are also timed, and the results are printed at the end, along with other benchmarking information.
+The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://www.npmjs.com/package/@mchp-mcc/crc-16bit-driver) to configure the CRC module using settings determined at runtime. These settings can be toggled with a menu that is displayed in the terminal. This will calculate the CRC value with a hardware implementation utilizing the MCC Melody CRC Module driver and a software implementation. These two values are then compared to verify the calculation. The calculations are also timed, and the results are printed at the end, along with other benchmarking information.
 
 # Related Documentation
 
@@ -80,9 +80,9 @@ The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://
 
 The MPLAB® XC16 compiler provides users with compiler optimization options. These options allow the user to speed up their code. This CRC Advanced Demo is functional at all optimization levels. 
 
-The optimization settings can be found in the project properties. Go to Project Properties -> XC16 -> Optimization Level to change optimization level for the project. The table below shows the optimization results for hardware and software CRC calculations with the default settings for the second data sequence. 
+The optimization settings can be found in the project properties. Go to Project Properties -> XC16 -> Optimization Level to change optimization level for the project. The table below shows the optimization results for hardware and software CRC calculations for the settings used in the Operations section. 
 
-| Optimization Level | Hardware CRC (Default Settings) | Software CRC (Default Settings) |
+| Optimization Level | Hardware CRC | Software CRC |
 |---|---|---|
 | 0 |0.0068 ms|0.0190 ms|
 | 1 |0.0048 ms|0.0109 ms|
@@ -96,7 +96,7 @@ The optimization settings can be found in the project properties. Go to Project 
 
 # CRC Settings
 
-The CRC calculations performed in this code example have different settings that can be toggled at runtime. **Note:** Settings toggled at runtime will NOT be reflected in the MCC Melody CRC driver "Easy View."
+The CRC calculations performed in this code example have different settings that can be toggled at runtime. **Note:** Settings toggled at runtime will NOT be reflected in the MCC Melody CRC driver or UI.
 
 - Shift direction: The direction the data is shifted through the registers. Can start with the most significant bit (MSB) or the least significant bit (LSB)
 - Initial Value: The initial value of the CRC result. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
@@ -140,6 +140,7 @@ The firmware function CRC_CalculationGet() is where the Reverse and Final XOR Va
     ![CRC Advanced Code Example Menu](images/advanced_main_menu.JPG)
 
     Menu Options
+
     | Number | Menu Setting | MCC Melody CRC Setting | Option 1 | Option 2 |
     | --- | --- | --- | --- | --- |
     | 1 | Shift Direction | Shift Direction | MSB | LSB | 
@@ -187,7 +188,7 @@ The firmware function CRC_CalculationGet() is where the Reverse and Final XOR Va
    
     ![Benchmarking Results (Default Path)](images/advanced_benchmarking.JPG)
 
-10. After the benchmarking is printed the program will end. **Once the program is done, press the clear (or MCLR) button on the board to start over.**
+10. After the benchmarking is printed the program will end. **To start over press the clear (or MCLR) button on the board.**
 
 ## Benchmarking
 
@@ -195,4 +196,4 @@ Benchmarking timing results are recorded using the MCC Melody Timer module while
 
 **NOTE: Faster and more complex software CRC implementations exist compared to the one used in this demo's firmware.**
 
-For smaller data sequences, like the first data sequence, the software implementation will be faster than the hardware. The ratio between the two is highly dependent on the size of the input data and the optimization level. However, for large data inputs, the hardware implementation will be much faster. 
+The benchmarking results are dependent on the size of the input data and optimization levels. For example, for smaller data sequences the software implementation will be faster than hardware. However, for large data inputs, the hardware implementation will be much faster.

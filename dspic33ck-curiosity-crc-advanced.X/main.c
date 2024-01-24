@@ -41,7 +41,7 @@ CRC_SETTINGS crcSettings = {
     .isInitialZero = false, 
     .isLsb = false, 
     .isReversed = false,
-    .currentData = 0
+    .currentData = 1
 };
 
 DEMO_SETTINGS demoSettings = {

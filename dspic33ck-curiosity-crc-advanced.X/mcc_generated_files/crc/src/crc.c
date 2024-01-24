@@ -108,7 +108,7 @@ void CRC_Initialize(void)
     CRCXORH = 0x0;
     
     // some seed
-    CRCWDATL = 0x0;
+    CRCWDATL = 0x84CF;
     CRCWDATH = 0x0;
 
     // set module state

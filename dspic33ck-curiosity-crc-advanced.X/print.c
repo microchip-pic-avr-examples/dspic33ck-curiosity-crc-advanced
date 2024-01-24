@@ -160,10 +160,10 @@ void printSeparator(uint8_t length)
     (void) printf("\r\n");
 }
 
-void printDataSubMenu(CRC_SETTINGS settings, uint8_t* inputData[], uint8_t inputDataSizes[])
+void printDataSubMenu(CRC_SETTINGS settings, uint8_t* inputData[], uint32_t inputDataSizes[])
 {
     printSeparator(MAX_LINE_WIDTH);
-    (void) printf("Select a data vector\r\n");
+    (void) printf("Select a data sequence\r\n");
     printSeparator(MAX_LINE_WIDTH);
     
     for(uint8_t i = 0; i < (uint8_t)4; i++)
@@ -221,7 +221,7 @@ void printLine32BitDependent(const char* lineTitle, bool settingValue, bool is32
     (void) printf("\r\n");
 }
 
-void printMenu(uint8_t* inputData[], uint8_t inputDataSize[])
+void printMenu(uint8_t* inputData[], uint32_t inputDataSize[])
 {
     printSeparator(MAX_LINE_WIDTH);
     (void) printf("Current Settings\r\n");
@@ -240,7 +240,7 @@ void printMenu(uint8_t* inputData[], uint8_t inputDataSize[])
     (void) printf("6. Inject virtual transmission error: %s%s%s\r\n", TEXT_COLOR_GREEN, 
             crcSettings.hasTransmissionError ? "Yes" : "No", TEXT_COLOR_DEFAULT);
     
-    (void) printf("7. Select Data Vector\r\n   Current: ");
+    (void) printf("7. Select Data Sequence\r\n   Current: ");
     
     if(crcSettings.isCRC32Bit)
     {
@@ -316,17 +316,26 @@ void printCRCCalculationResult(uint32_t value)
     (void) printf("%s\r\n\r\n", TEXT_COLOR_DEFAULT);
 }
 
+static double timerCountToMs(uint32_t timerCount, double timerPeriod) {
+    return (timerCount / (double)Timer1.PeriodGet()) * (double)timerPeriod;
+}
+
+static double calculateInstructions(double softwareCRCCalculationTime) {
+    uint32_t clockFrequency = CLOCK_InstructionFrequencyGet();
+    return (double)clockFrequency * softwareCRCCalculationTime;
+}
+
 void printBenchmarkingResults(uint16_t hardwareCRCTimerCount, uint16_t softwareCRCTimerCount, double hardwareToSoftwareTimeRatio) 
 {
     uint8_t timerPeriod = 2;
     
-    double hardwareCRCCalculationTime = timerCountToMs(hardwareCRCTimerCount, timerPeriod);
-    double softwareCRCCalculationTime = timerCountToMs(softwareCRCTimerCount, timerPeriod);
+    double hardwareCRCCalculationTime = (double) timerCountToMs(hardwareCRCTimerCount, timerPeriod);
+    double softwareCRCCalculationTime = (double) timerCountToMs(softwareCRCTimerCount, timerPeriod);
     
     (void) printf("\r\nBenchmarking:\r\n");
     (void) printf("Hardware Time: %.4f ms\n", hardwareCRCCalculationTime);
     (void) printf("Software Time: %.4f ms\n", softwareCRCCalculationTime);
     (void) printf("\r\nThe hardware calculation is %.2fx faster than the software calculation.\r\n", hardwareToSoftwareTimeRatio);
-    (void) printf("\r\nThe number of instruction cycles required for the software calculation: %lu\r\n", 
-            (unsigned long)(calculateInstructions(softwareCRCCalculationTime)));
+    (void) printf("\r\nThe number of instruction cycles required for the software calculation: %.0lf\r\n", 
+            (calculateInstructions(softwareCRCCalculationTime)));
 }

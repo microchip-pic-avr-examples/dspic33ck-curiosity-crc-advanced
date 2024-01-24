@@ -32,8 +32,6 @@
  *               This function set values that will be used in the software CRC calculation.
  * @param[in]    settings - struct that contains the boolean variables for the settings used to 
  *               configure the values for calculation
- * @param[in]    message[] - The data for which the CRC value will be calculated
- * @param[in]    messageLength - Number of words in the message
  * @return       none
  */
 void configureSoftwareCRC(CRC_SETTINGS settings);
@@ -44,6 +42,7 @@ void configureSoftwareCRC(CRC_SETTINGS settings);
  *               to process the value. 
  * @param[in]    settings - struct that contains all boolean variables used in the calculation of 
  *               the CRC value
+ * @param[in]    message[] - The data for which the CRC value will be calculated
  * @param[in]    messageLength - Number of words in the message
  * @return       Returns the final 16-bit CRC value after all of the calculation and processing
  */

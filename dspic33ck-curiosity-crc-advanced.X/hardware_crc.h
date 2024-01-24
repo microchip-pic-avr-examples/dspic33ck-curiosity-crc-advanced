@@ -59,6 +59,6 @@ void configureHardwareCRC(CRC_SETTINGS settings);
  * @param[in]    inputDataSize - The number of 8-bit words in the input data
  * @return       Returns the calculated CRC value calculated given the input settings
  */
-uint32_t calculateHardwareCRC(CRC_SETTINGS settings, uint8_t inputData[], uint8_t inputDataSize);
+uint32_t calculateHardwareCRC(CRC_SETTINGS settings, uint8_t inputData[], uint32_t inputDataSize);
 
 #endif	/* HARDWARE_CRC_H */

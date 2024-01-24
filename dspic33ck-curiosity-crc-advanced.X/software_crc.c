@@ -19,6 +19,7 @@
     THIS SOFTWARE.
 */
 
+#include "mcc_generated_files/timer/tmr1.h"
 #include "software_crc.h"
 
 #define MAX_DATA_SIZE 16
@@ -54,6 +55,8 @@ uint32_t calculateSoftwareCRC(CRC_SETTINGS settings, uint8_t message[], uint8_t 
     
     uint16_t crc16ccitt_polynomial = 0x1021;
     uint32_t crc32_polynomial = 0x04C11DB7;
+    
+    Timer1.Initialize();
     
     for(uint8_t word = 0; word < messageLength; word++)
     {
@@ -103,6 +106,8 @@ uint32_t calculateSoftwareCRC(CRC_SETTINGS settings, uint8_t message[], uint8_t 
             }
         }
     }
+    
+    Timer1.Stop();
     
     if(settings.isCRC32Bit)
     {

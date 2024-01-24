@@ -50,7 +50,7 @@ DEMO_SETTINGS demoSettings = {
     .isHardwareCRCComplete = false
 };
  
-volatile uint8_t transmitterStatus;
+static volatile uint8_t transmitterStatus;
 
 static void UART_ProcessCommand_Callback(void)
 {
@@ -78,13 +78,13 @@ int main(void)
     SYSTEM_Initialize();
     UartSerial->RxCompleteCallbackRegister(&UART_ProcessCommand_Callback);
     
-    uint8_t data0[4] = {0x68, 0x69, 0x21, 0x20};
+    uint8_t data0[2] = {0x6c, 0x93};
     uint8_t data1[8] = {0x38, 0x37, 0x36, 0x35, 0x34, 0x33, 0x32, 0x31};
     uint8_t data2[16] = {0x2F, 0x2F, 0x20, 0x48, 0x65, 0x6C, 0x6C, 0x6F, 
                      0x20, 0x77, 0x6F, 0x72, 0x6C, 0x64, 0x21, 0x20};
     uint8_t data3[4] = {0x00, 0x00, 0x00, 0x00};
 
-    uint8_t dataSize[4] = {4, 8, 16, 4};
+    uint32_t dataSize[4] = {2, 8, 16, 4};
     uint8_t* data[4] = {data0, data1, data2, data3};
     
     uint32_t hardwareCRCTimerCount = 0;
@@ -123,13 +123,11 @@ int main(void)
                     
                     configureHardwareCRC(crcSettings);
                     
-                    Timer1.Initialize();
                     transmitterCRCResult = calculateHardwareCRC(
                             crcSettings, 
                             data[crcSettings.currentData], 
                             dataSize[crcSettings.currentData]);
                     
-                    Timer1.Stop();
                     hardwareCRCTimerCount = TMR1_Counter16BitGet();
                     
                     printCRCCalculationResult(transmitterCRCResult);
@@ -187,13 +185,11 @@ int main(void)
     
     configureSoftwareCRC(crcSettings);
     
-    Timer1.Initialize();
     receiverCRCResult = calculateSoftwareCRC(
             crcSettings, 
             receiverBuffer, 
             dataSize[crcSettings.currentData]);
     
-    Timer1.Stop();
     softwareCRCTimerCount = TMR1_Counter16BitGet();
     
     (void) printf("\r\nValidating virtual transmission with software calculation.");
@@ -205,7 +201,7 @@ int main(void)
     
     //receiver end
     
-    timesRatio = (double)softwareCRCTimerCount / hardwareCRCTimerCount;
+    timesRatio = (double)softwareCRCTimerCount / (double)hardwareCRCTimerCount;
     printBenchmarkingResults(hardwareCRCTimerCount, softwareCRCTimerCount, timesRatio);
     
     while(1) {};

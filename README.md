@@ -186,7 +186,7 @@ The MPLAB® XC16 compiler provides users with compiler optimization options. The
 
 The optimization settings can be found in the project properties. Go to Project Properties -> XC16 -> Optimization Level to change optimization level for the project.
 
-The table below shows the benchmarking results for hardware and software CRC calculations with default settings (including using data vector {0x38, 0x37, 0x36, 0x35, 0x34, 0x33, 0x32, 0x31}). 
+The table below shows the optimization results for hardware and software CRC calculations using data vector {0x38, 0x37, 0x36, 0x35, 0x34, 0x33, 0x32, 0x31} with default settings.
 
 | Optimization Level | Hardware CRC | Software CRC |
 |---|---|---|

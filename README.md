@@ -80,7 +80,7 @@ The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://
 
 The MPLAB® XC16 compiler provides users with compiler optimization options. These options allow the user to speed up their code. This CRC Advanced Demo is functional at all optimization levels. 
 
-The optimization settings can be found in the project properties. Go to Project Properties -> XC16 -> Optimization Level to change optimization level for the project. The table below shows the optimization results for hardware and software CRC calculations for the settings used in the Operations section (including the second data vector). 
+The optimization settings can be found in the project properties. Go to Project Properties -> XC16 -> Optimization Level to change optimization level for the project. The table below shows the optimization results for hardware and software CRC calculations for the settings used in the Operations section (for the data vector {0x38, 0x37, 0x36, 0x35, 0x34, 0x33, 0x32, 0x31}). 
 
 | Optimization Level | Hardware CRC | Software CRC |
 |---|---|---|

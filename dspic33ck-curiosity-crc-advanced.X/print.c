@@ -1,5 +1,5 @@
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -322,7 +322,7 @@ static double timerCountToMs(uint32_t timerCount, double timerPeriod) {
 
 static double calculateInstructions(double softwareCRCCalculationTime) {
     uint32_t clockFrequency = CLOCK_InstructionFrequencyGet();
-    return (double)clockFrequency * softwareCRCCalculationTime;
+    return (double)clockFrequency * softwareCRCCalculationTime / 1000;
 }
 
 void printBenchmarkingResults(uint16_t hardwareCRCTimerCount, uint16_t softwareCRCTimerCount, double hardwareToSoftwareTimeRatio) 

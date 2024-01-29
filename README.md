@@ -172,7 +172,7 @@ The firmware function CRC_CalculationGet() is where the Reverse and Final XOR Va
 
 10. After the benchmarking is printed the program will end. **To start over press the clear (or MCLR) button on the board.**
 
-## Benchmarking
+# Benchmarking
 
 Benchmarking timing results are recorded using the MCC Melody Timer module while the hardware and software CRC values are being calculated. This is where a comparison of the performance of both CRC implementations are made. Additionally, the number of instruction cycles is printed for the software implementation.
 
@@ -180,7 +180,7 @@ Benchmarking timing results are recorded using the MCC Melody Timer module while
 
 The benchmarking results are dependent on the size of the input data and optimization levels. For example, for smaller data sequences the software implementation will be faster than hardware. However, for large data inputs, the hardware implementation will be much faster.
 
-### Compiler Optimization
+## Compiler Optimization
 
 The MPLAB® XC16 compiler provides users with compiler optimization options. These options allow the user to speed up their code. This CRC Advanced Demo is functional at all optimization levels. 
 

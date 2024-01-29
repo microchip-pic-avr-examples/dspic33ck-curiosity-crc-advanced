@@ -76,24 +76,6 @@ The code example uses the [MPLAB® Code Configurator Melody CRC Driver](https://
 
     ![Tera Term Serial Port Settings](images/tera_term_serial_port_menu.JPG)
 
-## Compiler Optimization
-
-The MPLAB® XC16 compiler provides users with compiler optimization options. These options allow the user to speed up their code. This CRC Advanced Demo is functional at all optimization levels. 
-
-The optimization settings can be found in the project properties. Go to Project Properties -> XC16 -> Optimization Level to change optimization level for the project. The table below shows the optimization results for hardware and software CRC calculations for the settings used in the Operations section. 
-
-| Optimization Level | Hardware CRC | Software CRC |
-|---|---|---|
-| 0 |0.0068 ms|0.0190 ms|
-| 1 |0.0048 ms|0.0109 ms|
-| 2* |0.0041 ms|0.0083 ms|
-| s** |0.0050 ms|0.0116 ms|
-| 3** |0.0041 ms|0.0062 ms|
-
-*Project is set to this level by default
-
-**MPLAB® XC16 PRO optimizations
-
 # CRC Settings
 
 The CRC calculations performed in this code example have different settings that can be toggled at runtime. **Note:** Settings toggled at runtime will NOT be reflected in the MCC Melody CRC driver or UI.
@@ -190,10 +172,30 @@ The firmware function CRC_CalculationGet() is where the Reverse and Final XOR Va
 
 10. After the benchmarking is printed the program will end. **To start over press the clear (or MCLR) button on the board.**
 
-## Benchmarking
+# Benchmarking
 
 Benchmarking timing results are recorded using the MCC Melody Timer module while the hardware and software CRC values are being calculated. This is where a comparison of the performance of both CRC implementations are made. Additionally, the number of instruction cycles is printed for the software implementation.
 
 **NOTE: Faster and more complex software CRC implementations exist compared to the one used in this demo's firmware.**
 
 The benchmarking results are dependent on the size of the input data and optimization levels. For example, for smaller data sequences the software implementation will be faster than hardware. However, for large data inputs, the hardware implementation will be much faster.
+
+## Compiler Optimization
+
+The MPLAB® XC16 compiler provides users with compiler optimization options. These options allow the user to speed up their code. This CRC Advanced Demo is functional at all optimization levels. 
+
+The optimization settings can be found in the project properties. Go to Project Properties -> XC16 -> Optimization Level to change optimization level for the project.
+
+The table below shows the optimization results for hardware and software CRC calculations using data vector {0x38, 0x37, 0x36, 0x35, 0x34, 0x33, 0x32, 0x31} with default settings.
+
+| Optimization Level | Hardware CRC | Software CRC |
+|---|---|---|
+| 0 |0.0068 ms|0.0190 ms|
+| 1 |0.0048 ms|0.0109 ms|
+| 2* |0.0041 ms|0.0083 ms|
+| s** |0.0050 ms|0.0116 ms|
+| 3** |0.0041 ms|0.0062 ms|
+
+*Project is set to this level by default
+
+**MPLAB® XC16 PRO optimizations

@@ -21,6 +21,7 @@
 #include "print.h"
 
 #define MAX_LINE_WIDTH 80
+#define MS_PER_SECOND 1000
 
 #define TEXT_COLOR_RED      "\033""[0;31m"
 #define TEXT_COLOR_GREEN    "\033""[0;32m"
@@ -322,7 +323,7 @@ static double timerCountToMs(uint32_t timerCount, double timerPeriod) {
 
 static double calculateInstructions(double softwareCRCCalculationTime) {
     uint32_t clockFrequency = CLOCK_InstructionFrequencyGet();
-    return (double)clockFrequency * softwareCRCCalculationTime / 1000;
+    return (double)clockFrequency * softwareCRCCalculationTime / (double)MS_PER_SECOND;
 }
 
 void printBenchmarkingResults(uint16_t hardwareCRCTimerCount, uint16_t softwareCRCTimerCount, double hardwareToSoftwareTimeRatio) 

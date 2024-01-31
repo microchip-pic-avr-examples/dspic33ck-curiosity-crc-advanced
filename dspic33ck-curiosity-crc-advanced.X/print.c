@@ -321,8 +321,9 @@ static double timerCountToMs(uint32_t timerCount, double timerPeriod) {
 }
 
 static double calculateInstructions(double softwareCRCCalculationTime_ms) {
-    uint32_t clockFrequency_Hz = CLOCK_InstructionFrequencyGet();
-    return (double)clockFrequency_Hz * (softwareCRCCalculationTime_ms / (double)1000);
+    uint32_t clockInstructionsPerSecond = CLOCK_InstructionFrequencyGet();
+    uint32_t clockInstructionsPerMillisecond = clockInstructionsPerSecond / (uint32_t)1000;
+    return (double)clockInstructionsPerMillisecond * softwareCRCCalculationTime_ms;
 }
 
 void printBenchmarkingResults(uint16_t hardwareCRCTimerCount, uint16_t softwareCRCTimerCount, double hardwareToSoftwareTimeRatio) 

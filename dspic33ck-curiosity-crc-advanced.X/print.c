@@ -1,5 +1,5 @@
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -316,21 +316,22 @@ void printCRCCalculationResult(uint32_t value)
     (void) printf("%s\r\n\r\n", TEXT_COLOR_DEFAULT);
 }
 
-static double timerCountToMs(uint32_t timerCount, double timerPeriod) {
+static double timerCountToMs(uint32_t timerCount) {
+    uint8_t timerPeriod = 2;
     return (timerCount / (double)Timer1.PeriodGet()) * (double)timerPeriod;
 }
 
-static double calculateInstructions(double softwareCRCCalculationTime) {
-    uint32_t clockFrequency = CLOCK_InstructionFrequencyGet();
-    return (double)clockFrequency * softwareCRCCalculationTime;
+static double calculateInstructions(double softwareCRCCalculationTime_ms) {
+    uint32_t clockInstructionsPerSecond = CLOCK_InstructionFrequencyGet();
+    uint32_t clockInstructionsPerMillisecond = clockInstructionsPerSecond / (uint32_t)1000;
+    return (double)clockInstructionsPerMillisecond * softwareCRCCalculationTime_ms;
 }
 
 void printBenchmarkingResults(uint16_t hardwareCRCTimerCount, uint16_t softwareCRCTimerCount, double hardwareToSoftwareTimeRatio) 
 {
-    uint8_t timerPeriod = 2;
     
-    double hardwareCRCCalculationTime = (double) timerCountToMs(hardwareCRCTimerCount, timerPeriod);
-    double softwareCRCCalculationTime = (double) timerCountToMs(softwareCRCTimerCount, timerPeriod);
+    double hardwareCRCCalculationTime = (double) timerCountToMs(hardwareCRCTimerCount);
+    double softwareCRCCalculationTime = (double) timerCountToMs(softwareCRCTimerCount);
     
     (void) printf("\r\nBenchmarking:\r\n");
     (void) printf("Hardware Time: %.4f ms\n", hardwareCRCCalculationTime);

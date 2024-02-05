@@ -316,7 +316,8 @@ void printCRCCalculationResult(uint32_t value)
     (void) printf("%s\r\n\r\n", TEXT_COLOR_DEFAULT);
 }
 
-static double timerCountToMs(uint32_t timerCount, double timerPeriod) {
+static double timerCountToMs(uint32_t timerCount) {
+    uint8_t timerPeriod = 2;
     return (timerCount / (double)Timer1.PeriodGet()) * (double)timerPeriod;
 }
 
@@ -328,10 +329,9 @@ static double calculateInstructions(double softwareCRCCalculationTime_ms) {
 
 void printBenchmarkingResults(uint16_t hardwareCRCTimerCount, uint16_t softwareCRCTimerCount, double hardwareToSoftwareTimeRatio) 
 {
-    uint8_t timerPeriod = 2;
     
-    double hardwareCRCCalculationTime = (double) timerCountToMs(hardwareCRCTimerCount, timerPeriod);
-    double softwareCRCCalculationTime = (double) timerCountToMs(softwareCRCTimerCount, timerPeriod);
+    double hardwareCRCCalculationTime = (double) timerCountToMs(hardwareCRCTimerCount);
+    double softwareCRCCalculationTime = (double) timerCountToMs(softwareCRCTimerCount);
     
     (void) printf("\r\nBenchmarking:\r\n");
     (void) printf("Hardware Time: %.4f ms\n", hardwareCRCCalculationTime);
